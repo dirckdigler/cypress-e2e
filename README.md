@@ -1,11 +1,11 @@
-# Pruebas de aceptación con Cypress en selfcare.dev.co
+# Pruebas de aceptación con Cypress para inicio de sesión en Selfcare b2b
 
 ## Introducción
 
 Para comprender y utilizar de forma correcta esta documentación se deben tener conocimientos básicos de Cypress por lo cual es necesario que a la par de esta información se consulte la [Documentación de Cypress](https://docs.cypress.io/).
 
 
-Adicionalmente en este repositorio existe un ejemplo completo y real el cual le puede servir de guía y de base. este ejemplo esta fuera del proyecto selfcare.dev.co.
+Adicionalmente en este repositorio existe un ejemplo completo y real el cual le puede servir de guía y de base. Este ejemplo se puede probar sin problema alguno, ya que se basa en la url publica.
 
 
 ## Instalación
@@ -84,43 +84,5 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 Esto evita que Excepcions detengan la ejecución de las pruebas.
 
 * •	Se debe elimina la carpeta `example` y su contenido que se encuentran en la carpeta `cypress/integration`.
-
-## Definición de Features
-
-Las features de deben crear en la carpeta `cypress/integration` con un archivo con el nombre de la historia o las siglas de control mas la numeración con la extensión `.feature` y se de crear una carpeta con el mismo nombre de la feature sin la extensión donde se colocarán los archivos `spec.js` en los cuales se realizan las pruebas según lo que dicta la feature. ejemplo:
-
-```
-cypress
-    >integration
-        nsmt8.feature
-        >msmt8
-            1_mostrar_radio.spec.js
-            2_pagar.spec.js
-```
-
-En el caso de los archivos `.spec.js` se debe crear uno por cada escenario definido en la feature.
-
-Los comandos que se utilizan para realizar las pruebas en los archivos `.spec.js` se especifican en detalle en la  [documentación](https://docs.cypress.io/api/api/table-of-contents.html) en el apartado `Commands`
-asi como las aserciones en el apartado `Assertions`
-
-
-## Ejecutar pruebas en desarrollo
-
-Para la ejecución de las pruebas en desarrollo se debe ejecutar en la consola el comando `npm run cy:open` el cual nos abrirá la aplicación de Cypress creada en Electron.
-
-## Ejecución en CI/CD
-
-Para ejecutar las pruebas en CI/CD se deben realizar los siguientes pasos:
-
-1.- En le ambiente de CI/CD se debe realizar la instalación de los paquetes con el comando `npm ci` para garantizar que se instalen bien los binarios de Cypress. Más [información](https://docs.npmjs.com/cli/ci).
-
-2.- Se debe ejecutar el comando `npm run cy:run` el cual ejecutara todas las pruebas en modo headlessly (sin cabeza) lo cual no ejecutara ni la aplicación de desarrollo de Cypress ni un navegador
-
-Al finalizar el proceso se genera un reporte el cual se creará en la carpeta indicada en el archivo `cypress.json` en el siguiente apartado:
-
-```
-    "reporterOptions": {
-      "reportDir": "./docs",
-```
 
 También es importante mencionar que se generan screenshots y videos que por defecto se guardan en la carpeta `cypress` bajo directorios separados con los nombres de `screenshots` y `videos` y que esa ubicación se puede cambiar en la configuración. Más [información](https://docs.cypress.io/guides/guides/screenshots-and-videos.html#Screenshots)
