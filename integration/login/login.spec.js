@@ -1,15 +1,10 @@
 import { Given, Then } from "cypress-cucumber-preprocessor/steps"
 
 Given('que estoy en la página de iniciar sesión', function () {
-  cy.on('uncaught:exception', (err, runnable) => {
-    // returning false here prevents errors
-    return false
-  })
   cy.visit("/user/old_login")
 });
 
 Given('escribo mi usuario y mi contraseña en el formulario', function () {
-
   cy.fixture('usuario.json').as('usuario')
   cy.get('@usuario').then((account) => {
     cy.get('#edit-name')
